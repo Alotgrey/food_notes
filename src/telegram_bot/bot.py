@@ -2,6 +2,7 @@ import logging
 from os import getenv
 
 from aiogram import Bot, Dispatcher
+from aiogram.client.session.aiohttp import AiohttpSession
 from aiogram.types import BotCommand
 
 from telegram_bot.handlers import telegram_router
@@ -18,7 +19,8 @@ async def set_commands(bot: Bot) -> None:
 
 async def start_bot() -> None:
     logger.warning('Bot is starting...')
-    bot = Bot(token=getenv('TELEGRAM_BOT_TOKEN'))
+    session = AiohttpSession(proxy=getenv('PROXY_URL'))
+    bot = Bot(token=getenv('TELEGRAM_BOT_TOKEN'), session=session)
     dp = Dispatcher()
     dp.include_router(telegram_router)
     await set_commands(bot)

@@ -13,7 +13,9 @@ dependencies = [
     "google (>=3.0.0,<4.0.0)",
     "gspread (>=6.2.1,<7.0.0)",
     "google-auth (>=2.48.0,<3.0.0)",
-    "python-dotenv (>=1.2.1,<2.0.0)"
+    "python-dotenv (>=1.2.1,<2.0.0)",
+    "aiohttp (>=3.13.3,<4.0.0)",
+    "aiohttp-socks (>=0.11.0,<0.12.0)"
 ]
 
 
